@@ -2,9 +2,9 @@
     "editor.rulers": [140],
     "editor.formatOnSave": true,
     "files.exclude": {
-        "**/node_modules/": false,
-        "packages/**/*.js": true,
-        "packages/**/*.d.ts": true
+        "**/node_modules/": true,
+        "packages/**/*.js": false,
+        "packages/**/*.d.ts": false
     },
     "npm.enableScriptExplorer": true
 }

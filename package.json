@@ -4,15 +4,20 @@
     "scripts": {
         "bootstrap": "lerna bootstrap",
         "build": "npm run update-packages && npm run bootstrap && tsc",
-        "publish": "npm run build && lerna publish",
+        "test": "jest --config jest.json",
+        "publish": "npm run tslint && npm run build && lerna publish",
+        "tslint": "tslint --project ./",
         "update-packages": "ts-node scripts/update-and-clean-packages && sort-package-json 'package.json' 'packages/*/package.json'"
     },
     "dependencies": {
+        "@types/jest": "25.1.2",
         "@types/node": "13.7.0",
         "@types/prettier": "1.19.0",
+        "jest": "25.1.0",
         "lerna": "3.20.2",
         "prettier": "1.19.1",
         "sort-package-json": "1.39.1",
+        "ts-jest": "25.2.0",
         "ts-node": "8.6.2",
         "tslint": "6.0.0",
         "tslint-config-prettier": "1.18.0",
