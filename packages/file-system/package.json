@@ -1,0 +1,14 @@
+{
+    "name": "@node-cms/file-system",
+    "version": "0.0.22",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/node-cms/node-cms",
+        "directory": "packages/file-system"
+    },
+    "license": "MIT",
+    "publishConfig": {
+        "access": "public"
+    },
+    "gitHead": "a7769bc273fe2f0e5ac192f10ec7def7a9574a20"
+}

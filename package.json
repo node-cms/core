@@ -1,0 +1,24 @@
+{
+    "name": "nodecms",
+    "private": true,
+    "scripts": {
+        "bootstrap": "lerna bootstrap",
+        "build": "npm run update-packages && npm run bootstrap && tsc",
+        "publish": "npm run build && lerna publish",
+        "update-packages": "ts-node scripts/update-and-clean-packages && sort-package-json 'package.json' 'packages/*/package.json'"
+    },
+    "dependencies": {
+        "@types/node": "13.7.0",
+        "@types/prettier": "1.19.0",
+        "lerna": "3.20.2",
+        "prettier": "1.19.1",
+        "sort-package-json": "1.39.1",
+        "ts-node": "8.6.2",
+        "tslint": "6.0.0",
+        "tslint-config-prettier": "1.18.0",
+        "typescript": "3.7.5"
+    },
+    "engines": {
+        "node": ">= 13.8"
+    }
+}
