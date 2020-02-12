@@ -1,7 +1,5 @@
-import FileSystemUtil from '@node-cms/file-system/util/file-system.util';
+import FileSystem from '@node-cms/file-system/component/file-system';
 
 export default class ApplicationService {
-    public static async start(): Promise<void> {
-        await FileSystemUtil.isDirectory(__dirname);
-    }
+    public static async start(): Promise<void> {}
 }
