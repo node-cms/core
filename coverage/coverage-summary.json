@@ -1,4 +1,0 @@
-{"total": {"lines":{"total":9,"covered":0,"skipped":0,"pct":0},"statements":{"total":9,"covered":0,"skipped":0,"pct":0},"functions":{"total":2,"covered":0,"skipped":0,"pct":0},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
-,"/Users/eckert/Projects/node-cms/packages/core/service/application.service.ts": {"lines":{"total":4,"covered":0,"skipped":0,"pct":0},"functions":{"total":1,"covered":0,"skipped":0,"pct":0},"statements":{"total":4,"covered":0,"skipped":0,"pct":0},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
-,"/Users/eckert/Projects/node-cms/packages/file-system/util/file-system.util.ts": {"lines":{"total":5,"covered":0,"skipped":0,"pct":0},"functions":{"total":1,"covered":0,"skipped":0,"pct":0},"statements":{"total":5,"covered":0,"skipped":0,"pct":0},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
-}

@@ -2,10 +2,9 @@
     "name": "nodecms",
     "private": true,
     "scripts": {
-        "bootstrap": "lerna bootstrap",
-        "build": "npm run update-packages && npm run bootstrap && tsc",
+        "bootstrap": "lerna bootstrap && tsc",
+        "publish": "npm run clean && npm run update-packages && npm run tslint && npm run test && npm run bootstrap && lerna publish",
         "test": "jest --config jest.json",
-        "publish": "npm run tslint && npm run build && lerna publish",
         "tslint": "tslint --project ./",
         "update-packages": "ts-node scripts/update-and-clean-packages && sort-package-json 'package.json' 'packages/*/package.json'"
     },
