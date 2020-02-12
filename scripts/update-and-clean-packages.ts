@@ -12,9 +12,11 @@ class UpdateAndCleanPackages {
             const pathToPackageJson = path.join(this.packagesPath, name, 'package.json');
             const pathToTsConfigJson = path.join(this.packagesPath, name, 'tsconfig.json');
             const pathToNpmIgnore = path.join(this.packagesPath, name, '.npmignore');
+            const pathToNpmrc = path.join(this.packagesPath, name, '.npmrc');
             const packageJson = JSON.parse(fs.readFileSync(pathToPackageJson, 'utf8'));
 
             packageJson.name = '@node-cms/' + name;
+            packageJson.description = '@node-cms/' + name;
             packageJson.license = 'MIT';
             packageJson.publishConfig = {
                 access: 'public',
@@ -36,6 +38,8 @@ class UpdateAndCleanPackages {
             }
 
             fs.writeFileSync(pathToNpmIgnore, '**/*.ts' + '\n');
+
+            fs.writeFileSync(pathToNpmrc, 'engine-strict=true' + '\n' + 'package-lock=false' + '\n');
         }
     }
 }
