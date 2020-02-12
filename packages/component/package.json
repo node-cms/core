@@ -1,11 +1,11 @@
 {
-    "name": "@node-cms/style-guide",
+    "name": "@node-cms/component",
     "version": "0.0.22",
-    "description": "@node-cms/style-guide",
+    "description": "@node-cms/component",
     "repository": {
         "type": "git",
         "url": "https://github.com/node-cms/node-cms",
-        "directory": "packages/style-guide"
+        "directory": "packages/component"
     },
     "license": "MIT",
     "publishConfig": {

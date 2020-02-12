@@ -3,7 +3,7 @@ import StringUtil from '../util/string.util';
 import LogEntity from '../entity/log.entity';
 import ApplicationConfig from '../config/application.config';
 import * as nodePath from 'path';
-import FileSystemUtil from '../util/file-system.util';
+import FileSystem from '@node-cms/component/file-system';
 
 @ServiceDecorator()
 export default class LoggerService {
@@ -78,7 +78,15 @@ export default class LoggerService {
     protected async _writeLog(log: LogEntity) {
         const logFilePaths = [
             nodePath.join(this._applicationConfig.rootPath, 'var', this._applicationConfig.context, 'log', log.level + '.log'),
-            nodePath.join(this._applicationConfig.rootPath, 'var', this._applicationConfig.context, 'log', log.contextType, log.contextName, log.level + '.log'),
+            nodePath.join(
+                this._applicationConfig.rootPath,
+                'var',
+                this._applicationConfig.context,
+                'log',
+                log.contextType,
+                log.contextName,
+                log.level + '.log',
+            ),
         ];
 
         const output = [];
@@ -93,13 +101,13 @@ export default class LoggerService {
 
         for (const logFilePath of logFilePaths) {
             // check if log file exists and create if not
-            await FileSystemUtil.ensureFileExists(logFilePath);
+            await FileSystem.ensureFileExists(logFilePath);
 
             // check if log rotation is necessary
             // await this._rotateLogFile(logFile);
 
             // write line to log file
-            await FileSystemUtil.appendFile(
+            await FileSystem.appendFile(
                 logFilePath,
                 output
                     .join(' ')
@@ -149,6 +157,14 @@ export default class LoggerService {
     }
 
     private dateToString(date: Date): string {
-        return date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2) + ' ' + date.toTimeString().slice(0, 8);
+        return (
+            date.getFullYear() +
+            '-' +
+            ('0' + (date.getMonth() + 1)).slice(-2) +
+            '-' +
+            ('0' + date.getDate()).slice(-2) +
+            ' ' +
+            date.toTimeString().slice(0, 8)
+        );
     }
 }

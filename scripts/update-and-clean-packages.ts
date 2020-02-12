@@ -9,6 +9,11 @@ class UpdateAndCleanPackages {
 
     public static async run(): Promise<void> {
         for (const name of fs.readdirSync(this.packagesPath)) {
+            // prevent using path segements like .DS_Store
+            if (name.startsWith('.')) {
+                continue;
+            }
+
             const pathToPackageJson = path.join(this.packagesPath, name, 'package.json');
             const pathToTsConfigJson = path.join(this.packagesPath, name, 'tsconfig.json');
             const pathToNpmIgnore = path.join(this.packagesPath, name, '.npmignore');

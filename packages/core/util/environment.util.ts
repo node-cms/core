@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 import EnvironmentVariableError from '../error/environment-variable.error';
-import FileSystemUtil from './file-system.util';
+import FileSystem from '@node-cms/component/file-system';
 import EnvironmentVariableInterface from '../interface/environment-variable.interface';
 
 export default class EnvironmentUtil {
@@ -38,7 +38,7 @@ export default class EnvironmentUtil {
 
     protected static _loadContextDotEnv(): void {
         const pathToContextDotEnv = this._values.NODE_ENV + '.env';
-        FileSystemUtil.ensureFileExistsSync(pathToContextDotEnv);
+        FileSystem.ensureFileExistsSync(pathToContextDotEnv);
 
         dotenv.config({ path: pathToContextDotEnv });
         this._contextDotEnvLoaded = true;
@@ -56,8 +56,8 @@ export default class EnvironmentUtil {
 
         const pathToExampleDotEnv = 'example.env';
 
-        FileSystemUtil.removeSync(pathToExampleDotEnv);
-        FileSystemUtil.ensureFileExistsSync(pathToExampleDotEnv);
+        FileSystem.removeSync(pathToExampleDotEnv);
+        FileSystem.ensureFileExistsSync(pathToExampleDotEnv);
 
         const data = [];
 
@@ -83,7 +83,7 @@ export default class EnvironmentUtil {
             data.push(`${name}=${example}`);
         }
 
-        FileSystemUtil.appendFileSync(pathToExampleDotEnv, data.join('\n'));
+        FileSystem.appendFileSync(pathToExampleDotEnv, data.join('\n'));
     }
 
     protected static getValueFromEnv(name: string): string | number | boolean | undefined {

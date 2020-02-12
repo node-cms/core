@@ -1,7 +1,7 @@
-import * as nodeFs from 'fs';
-import * as nodePath from 'path';
+import nodeFs from 'fs';
+import nodePath from 'path';
 
-export default class FileSystemUtil {
+export default class FileSystem {
     public static async symlink(target: string, path: string) {
         return nodeFs.promises.symlink(target, path);
     }
